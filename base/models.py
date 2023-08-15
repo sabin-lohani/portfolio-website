@@ -56,3 +56,10 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return f"Testimonial by {self.author_name}"
+
+class Award(models.Model):
+    award_details = models.CharField(max_length=200)
+    link = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.award_details
