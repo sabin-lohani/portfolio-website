@@ -30,3 +30,14 @@ class Experience(models.Model):
 
     def __str__(self):
         return f"{self.job_title} at {self.company}"
+    
+class Education(models.Model):
+    start_date = models.DateField()
+    end_date = models.DateField()
+    institution_name = models.CharField(max_length=100)
+    degree_title = models.CharField(max_length=100)
+    specialization = models.CharField(max_length=100, null=True, blank=True)
+    gpa = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.degree_title} from {self.institution_name}"
