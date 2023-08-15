@@ -47,3 +47,12 @@ class Education(models.Model):
 
     def __str__(self):
         return f"{self.degree_title} from {self.institution_name}"
+
+class Testimonial(models.Model):
+    author_pic = models.ImageField(upload_to='testimonial_pics/')
+    author_name = models.CharField(max_length=100)
+    position = models.CharField(max_length=100)
+    content = models.TextField()
+
+    def __str__(self):
+        return f"Testimonial by {self.author_name}"
