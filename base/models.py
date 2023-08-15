@@ -63,3 +63,10 @@ class Award(models.Model):
 
     def __str__(self):
         return self.award_details
+
+class NavLink(models.Model):
+    link_title = models.CharField(max_length=100)
+    section_link = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.link_title
