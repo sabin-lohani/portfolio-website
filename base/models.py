@@ -67,6 +67,20 @@ class Award(models.Model):
 class NavLink(models.Model):
     link_title = models.CharField(max_length=100)
     section_link = models.CharField(max_length=100)
-    
+
     def __str__(self):
         return self.link_title
+    
+class FaIcon(models.Model):
+    platform_name = models.CharField(max_length = 150)
+    icon_class = models.CharField(max_length = 150)
+
+    def __str__(self):
+        return f'{self.platform_name} - {self.icon_class}'
+    
+class SocialLink(models.Model):
+    fa_icon = models.ForeignKey(FaIcon, on_delete=models.SET_NULL, null=True)
+    link = models.URLField()
+
+    def __str__(self):
+        return f'{self.fa_icon.platform_name} - {self.link}'
